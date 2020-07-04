@@ -3,20 +3,77 @@
     package="com.store.data" >
 
     <application
+		android:name="com.store.data.DataApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme"
-		android:resizeableActivity="true">
+		android:theme="@style/ZTheme"
+        android:resizeableActivity="true">
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:name="com.store.data.DataActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
+		<activity
+            android:name="com.store.data.engine.EngineActivity"
+            android:label="@string/app_name" 
+			android:theme="@style/ZTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+		<activity
+            android:name="com.store.data.engine.app.transit.TransitActivity"
+            android:label="@string/app_name" 
+			android:theme="@style/ZTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+		<activity
+            android:name="com.store.data.engine.app.about.AboutActivity"
+            android:label="@string/action_about"
+            android:theme="@style/ZTheme" />
+
+		<activity
+            android:name="com.store.data.engine.app.settings.SettingsActivity"
+            android:exported="false"
+            android:label="@string/action_settings"
+            android:theme="@style/ZTheme" />
+    </application>
+	<supports-screens
+        android:anyDensity="true"
+        android:resizeable="true"
+        android:smallScreens="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:xlargeScreens="true" />
+    <!--
+	Remove permissions that your app doesn't require, asking for authority over unwanted information can cause damage to your reputation among your users
+    -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"  />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SET_DEBUG_APP"/>
+	<uses-permission android:name="android.permission.GET_TOP_ACTIVITY_INFO"/>
+	<uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+
+    <!-- remove location.gps feature if not using permission ACCESS_FINE_LOCATION -->
+    <uses-feature android:name="android.hardware.location.gps" />
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+
+	
 </manifest>

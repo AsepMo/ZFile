@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Color For Application -->
+	<color name="colorPrimaryDark">#1976D2</color> <!-- [ BLUE - 700 ] -->
+	<color name="colorPrimary">#2196F3</color> <!-- [ BLUE - 500 ] -->
+	<color name="colorPrimaryLight">#BBDEFB</color> <!-- [ BLUE - 100 ] -->
+	<color name="colorAccent">#F50057</color> <!-- [ PINK - A400 ] -->
+
+	<color name="colorAccentApplication">#fff1e8b8</color>
+	<color name="colorPrimaryEditor">#ff212121</color>
+	<color name="colorPrimaryPicker">#F44336</color>
+    <color name="colorPrimaryPickerDark">#D32F2F</color>
+    <color name="colorAccentPicker">#FFAB00</color>
+	
+	<color name="textColorPrimary">#FFFFFF</color>
+	<color name="textColorSecondary">#B2B2B2</color>
+
+	<color name="text">#FFFFFF</color>
+	<color name="icons">#FFFFFF</color>
+	<color name="divider">#1E1E1E</color>
+
+	<color name="colorControlNormal">@color/textColorSecondary</color>
+	<color name="colorControlActivated">@color/colorAccent</color>
+	<color name="colorControlHighlight">@color/divider</color>
+
+	<color name="colorButtonNormal">@color/defaultColorSecondary</color>
+	<!--<color name="colorSwitchThumbNormal">#19C1B2</color>
+	<color name="navigationBarColor">@color/colorPrimaryDark</color>
+	-->
+	<!-- Color For ActionMode -->
+	<color name="actionModeBackground">#FF4081</color>
+	
+	<color name="defaultColor">#ffa53f2b</color>
+	<color name="defaultColorSecondary">#EF3A0F</color>
+	<color name="defaultControl">#939393</color>
+
+	<color name="alertColor">#323232</color>
+    <color name="alertDarkColor">#ff242424</color>
+	
+	<color name="windowBackground">#212121</color>
+	<color name="lightBackground">#E0E0E0</color>
+	<color name="darkBackground">#424242</color>
+	<color name="drawerBackground">#34474F</color>
+	<color name="rowBackground">#34474F</color>
+	<!-- General -->
+    <color name="about_background_color">#303030</color>
+    <color name="about_separator_color">#494949</color>
+
+    <!-- Text -->
+    <color name="about_description_text_color">#C1C1C1</color>
+    <color name="about_item_text_color">#FFFFFF</color>
+    <color name="about_text_color">#C1C1C1</color>
+</resources>

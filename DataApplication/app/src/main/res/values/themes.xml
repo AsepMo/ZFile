@@ -1,0 +1,77 @@
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+	Normally just a redirection, but this is used to make ourselves a
+	dialog on large tablets
+
+    -->
+
+    <style name="Theme.Splash" parent="@style/ZTheme">
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@drawable/ic_start_data</item>
+
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="ZTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+		<item name="actionBarWidgetTheme">@null</item>
+        <item name="actionBarTheme">@style/ZTheme.AppBarOverlay</item>
+        <item name="actionBarPopupTheme">@style/ZTheme.PopupOverlay</item>
+        <item name="actionModeBackground">@color/alertDarkColor</item>
+
+        <!-- Customize your theme here. -->
+		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+		<item name="colorPrimary">@color/colorPrimary</item>
+		<item name="colorAccent">@color/colorAccent</item>
+
+		<item name="android:textColorPrimary">@color/textColorPrimary</item>
+		<item name="android:textColorSecondary">@color/textColorSecondary</item>
+
+		<item name="colorControlNormal">@color/colorControlNormal</item>
+		<item name="colorControlActivated">@color/colorControlActivated</item>
+		<item name="colorControlHighlight">@color/colorControlHighlight</item>
+
+		<item name="alertDialogTheme">@style/AppCompatAlertDialogStyle</item>
+
+		<item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+    </style>
+
+    <style name="ZTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="ZTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="ZTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+	
+	<style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+		<item name="spinBars">true</item>
+		<item name="color">@color/icons</item>
+	</style>
+
+	<!-- Style for AlertDialogs -->
+	<style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+		<item name="colorAccent">@color/colorAccent</item>
+		<item name="android:textColorPrimary">@color/textColorPrimary</item>
+		<item name="android:background">@color/rowBackground</item>
+	</style>
+	<style name="PickerAlertDialogTheme" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="colorPrimary">@color/colorPrimaryPicker</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryPickerDark</item>
+        <item name="colorAccent">@color/colorAccentPicker</item>
+    </style>
+
+    <style name="PickerAlertDialogThemeLight" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorPrimary">@color/colorPrimaryPicker</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryPickerDark</item>
+        <item name="colorAccent">@color/colorAccentPicker</item>
+    </style>
+
+    <style name="PickerToolbarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColorPrimary">@android:color/white</item>
+    </style>
+
+</resources>

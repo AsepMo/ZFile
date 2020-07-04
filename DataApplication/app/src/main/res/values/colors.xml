@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Color For Application -->
+	<color name="colorPrimaryDark">#ff8e3725</color> <!-- [ BLUE - 700 ] -->
+	<color name="colorPrimary">#ffa53f2b</color> <!-- [ BLUE - 500 ] -->
+	<color name="colorPrimaryLight">#BBDEFB</color> <!-- [ BLUE - 100 ] -->
+	<color name="colorAccent">#ff8e3725</color> <!-- [ PINK - A400 ] -->
+	
+	<color name="colorAccentApplication">#fff1e8b8</color>
+	<color name="colorPrimaryEditor">#ff212121</color>
+	<color name="colorPrimaryPicker">#F44336</color>
+    <color name="colorPrimaryPickerDark">#D32F2F</color>
+    <color name="colorAccentPicker">#FFAB00</color>
+	
+	<!-- Color For TextColor -->
+	<color name="textColorPrimary">#212121</color>
+	<color name="textColorSecondary">#727272</color>
+
+	<color name="text">#FFFFFF</color>
+	<color name="icons">#FFFFFF</color>
+	<color name="divider">#B6B6B6</color>
+
+	<color name="colorControlNormal">@color/textColorSecondary</color>
+	<color name="colorControlActivated">@color/colorAccent</color>
+	<color name="colorControlHighlight">@color/divider</color>
+
+	
+	<color name="colorButtonNormal">@color/defaultColor</color>
+	<!--<color name="colorSwitchThumbNormal">#19C1B2</color>
+	<color name="navigationBarColor">@color/colorPrimaryDark</color>
+	-->
+	<!-- Color For ActionMode -->
+	<color name="actionModeBackground">#FF4081</color>
+
+	<color name="defaultColor">#ffa53f2b</color>
+	<color name="defaultColorSecondary">#EF3A0F</color>
+	<color name="defaultControl">#939393</color>
+
+	<color name="alertColor">#323232</color>
+    <color name="alertDarkColor">#ff242424</color>
+	<color name="statusBarColor">#28000000</color>
+	
+	<color name="windowBackground">#C0C3C6</color>
+	<color name="lightBackground">#E0E0E0</color>
+	<color name="darkBackground">#424242</color>
+	<color name="drawerBackground">#FFfafafa</color>
+	<color name="rowBackground">#F2F2F2</color>
+	<!-- General -->
+    <color name="about_item_icon_color">#313131</color>
+
+    <!-- Social -->
+    <color name="about_facebook_color">#3b5998</color>
+    <color name="about_twitter_color">#55acee</color>
+    <color name="about_instagram_color">#3f729b</color>
+    <color name="about_play_store_color">#45BBC2</color>
+    <color name="about_youtube_color">#cd201f</color>
+    <color name="about_github_color">#333333</color>
+</resources>
+

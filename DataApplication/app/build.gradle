@@ -1,14 +1,17 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
 
     defaultConfig {
         applicationId "com.store.data"
-        minSdkVersion 14
-        targetSdkVersion 29
+        minSdkVersion 17
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
+		vectorDrawables.useSupportLibrary = true
+        //multiDexEnabled true
     }
     buildTypes {
         release {
@@ -20,4 +23,23 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+	//Project
+	api project(':directory')
+
+	//Android Support
+    api 'com.android.support:appcompat-v7:27.0.2'
+    api 'com.android.support:design:27.0.2'
+	
+    // Image loading sample
+    compile 'com.github.bumptech.glide:glide:3.6.1'
+    // FTP browser sample
+    compile 'commons-net:commons-net:3.3'
+
+    // Root example
+    compile 'eu.chainfire:libsuperuser:1.0.0.+'
+	
+	//SlidingRootNav sample
+	compile 'com.yarolegovich:sliding-root-nav:1.1.0'
 }
+
