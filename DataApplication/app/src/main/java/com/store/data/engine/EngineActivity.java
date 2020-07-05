@@ -144,7 +144,7 @@ public class EngineActivity extends ActionBarActivity implements DrawerAdapter.O
 		}
 		if (position == POS_LOGOUT)
 		{
-			TransitActivity.start(EngineActivity.this, TransitActivity.EXIT);
+			TransitActivity.start(EngineActivity.this, TransitActivity.SHUTDOWN);
             finish();
         }
         slidingRootNav.closeMenu();
