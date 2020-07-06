@@ -1,6 +1,9 @@
 package com.store.data;
 
 import android.support.v7.app.AppCompatActivity;
+import android.support.v4.content.ContextCompat;
+import android.annotation.TargetApi;
+import android.graphics.Color;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,28 +13,38 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.store.data.R;
-import com.store.data.engine.app.about.AboutActivity;
-import com.store.data.engine.app.editor.BaseDriveActivity;
-import com.store.data.engine.app.settings.SettingsActivity;
+import com.store.data.engine.Api;
 import com.store.data.engine.EngineActivity;
+import com.store.data.engine.app.SystemBarTintManager;
+import com.store.data.engine.app.about.AboutActivity;
+import com.store.data.engine.app.settings.SettingsActivity;
 
 public class DataActivity extends AppCompatActivity
 {
 
+	public static String TAG =  DataActivity.class.getSimpleName();
 	
 	public static void start(Context c, String value){
 		Intent mApplication = new Intent(c, DataActivity.class);
 		c.startActivity(mApplication);
 	}
+	
+	@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 	@Override
     protected void onCreate(Bundle savedInstanceState)
 	{
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+        //int color = Api.getStatusBarColor(SettingsActivity.getPrimaryColor(this));
+		if (Api.hasLollipop())
 		{
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            getWindow().setStatusBarColor(getResources().getColor(R.color.accent_black));
-		}
-		//setTheme(R.style.ZTheme);
+            getWindow().setStatusBarColor(Color.BLACK);
+        }
+        else if (Api.hasKitKat())
+		{
+            SystemBarTintManager systemBarTintManager = new SystemBarTintManager(this);
+            systemBarTintManager.setTintColor(Api.getStatusBarColor(Color.BLACK));
+            systemBarTintManager.setStatusBarTintEnabled(true);
+        }
+        //setUpStatusBar();
 		supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_start);
@@ -52,7 +65,6 @@ public class DataActivity extends AppCompatActivity
 					DataActivity.this.finish();
 				}
 			}, SPLASH_TIME_OUT);
-		
     }
 
 }

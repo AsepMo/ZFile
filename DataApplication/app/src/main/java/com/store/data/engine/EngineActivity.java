@@ -47,6 +47,7 @@ import com.store.data.engine.Api;
 import com.store.data.engine.app.AnalyticsManager;
 import com.store.data.engine.app.ActionBarActivity;
 import com.store.data.engine.app.SystemBarTintManager;
+import com.store.data.engine.app.dashboard.DashboardFragment;
 import com.store.data.engine.app.transit.TransitActivity;
 import com.store.data.engine.app.settings.AppSettings;
 import com.store.data.engine.app.settings.SettingsActivity;
@@ -58,11 +59,7 @@ import com.store.data.engine.view.menu.SpaceItem;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 import com.ls.directoryselector.DirectoryDialog;
-import com.store.data.engine.app.dashboard.DashboardFragment;
-import android.widget.PopupWindow;
-import android.view.LayoutInflater;
-import android.widget.LinearLayout.LayoutParams;
-import com.store.data.engine.animation.PopupHelper;
+
 
 public class EngineActivity extends ActionBarActivity implements DrawerAdapter.OnItemSelectedListener, DirectoryDialog.Listener
 {
@@ -265,29 +262,21 @@ public class EngineActivity extends ActionBarActivity implements DrawerAdapter.O
 			AnalyticsManager.logEvent("About");
 			TransitActivity.start(EngineActivity.this, TransitActivity.ABOUT);
             return true;
-        }else if (id == R.id.action_menu) {
-			final View menuItemView = findViewById(R.id.action_menu);
-			showPopup(menuItemView);
+        }
+		else if (id == R.id.action_menu)
+		{
+			//final View menuItemView = findViewById(R.id.action_menu);
+			//showPopup(menuItemView);
+			//Reboot.start(EngineActivity.this);
+			Api.setDebugging(EngineActivity.this);
 			return true;
-		}else
+		}
+		else
 		{
 			return super.onOptionsItemSelected(item);
 		}
 	}
-    
 
-	private void showPopup(View view)
-	{
-		PopupWindow showPopup = PopupHelper.newBasicPopupWindow(getApplicationContext());
-		LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View popupView = inflater.inflate(R.layout.custom_layout, null);
-		showPopup.setContentView(popupView);
-
-		showPopup.setWidth(LayoutParams.WRAP_CONTENT);
-		showPopup.setHeight(LayoutParams.WRAP_CONTENT);
-		showPopup.setAnimationStyle(R.style.Animations_GrowFromTop);
-		showPopup.showAsDropDown(view);
-	}
 	private final SharedPreferences.OnSharedPreferenceChangeListener sharedPrefsChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
 		@Override
 		public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)

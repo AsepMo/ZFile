@@ -56,5 +56,14 @@
     <color name="about_play_store_color">#45BBC2</color>
     <color name="about_youtube_color">#cd201f</color>
     <color name="about_github_color">#333333</color>
+	
+	<!-- Debug Colors -->
+	<color name="debug_kit_primary">#8FB5C3</color>
+    <color name="debug_kit_background">#022735</color>
+    <color name="debug_kit_background_black">#000</color>
+    <color name="debug_kit_primary_light">#fff</color>
+    <color name="debug_kit_background_light">#8FB5C3</color>
+    <color name="debug_kit_background_black_light">#000</color>
+  
 </resources>
 

@@ -9,9 +9,6 @@
         android:label="@string/app_name"
 		android:theme="@style/ZTheme"
         android:resizeableActivity="true">
-		<meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
 		
         <activity
             android:name="com.store.data.DataActivity"
@@ -43,8 +40,8 @@
             </intent-filter>
         </activity>
 		<activity 
-			android:name="com.store.data.engine.app.shutdown.Shutdown"
-			android:label="@string/app_name"
+			android:name="com.store.data.engine.app.shutdown.Restart"
+			android:label="@string/really_restart"
 			android:theme="@style/Theme.AppCompat.DayNight.DialogWhenLarge"
 			android:launchMode="singleInstance"
 			android:excludeFromRecents="true"
@@ -54,11 +51,66 @@
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
-		<activity
-            android:name="com.store.data.engine.app.editor.TextEditorActivity"
-            android:label="@string/action_about"
-            android:theme="@style/ZTheme" />
-		
+		<activity 
+			android:name="com.store.data.engine.app.shutdown.Shutdown"
+			android:label="@string/really_shutdown"
+			android:theme="@style/Theme.AppCompat.DayNight.DialogWhenLarge"
+			android:launchMode="singleInstance"
+			android:excludeFromRecents="true"
+			android:finishOnTaskLaunch="true">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<activity 
+			android:name="com.store.data.engine.app.shutdown.Reboot"
+			android:label="@string/really_reboot"
+			android:theme="@style/Theme.AppCompat.DayNight.DialogWhenLarge"
+			android:launchMode="singleInstance"
+			android:excludeFromRecents="true"
+			android:finishOnTaskLaunch="true">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<activity 
+			android:name="com.store.data.engine.app.shutdown.RebootRecovery"
+			android:label="@string/really_reboot_recovery"
+			android:theme="@style/Theme.AppCompat.DayNight.DialogWhenLarge"
+			android:launchMode="singleInstance"
+			android:excludeFromRecents="true"
+			android:finishOnTaskLaunch="true">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<activity 
+			android:name="com.store.data.engine.app.shutdown.RebootDownload"
+			android:label="@string/really_reboot_download"
+			android:theme="@style/Theme.AppCompat.DayNight.DialogWhenLarge"
+			android:launchMode="singleInstance"
+			android:excludeFromRecents="true"
+			android:finishOnTaskLaunch="true">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<activity 
+			android:name="com.store.data.engine.app.shutdown.RebootFastboot"
+			android:label="@string/really_reboot_fastboot"
+			android:theme="@style/Theme.AppCompat.DayNight.DialogWhenLarge"
+			android:launchMode="singleInstance"
+			android:excludeFromRecents="true"
+			android:finishOnTaskLaunch="true">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
 		<activity
             android:name="com.store.data.engine.app.about.AboutActivity"
             android:label="@string/action_about"

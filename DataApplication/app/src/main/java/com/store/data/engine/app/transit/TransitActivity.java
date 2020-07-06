@@ -12,7 +12,7 @@ import com.store.data.R;
 import com.store.data.engine.app.about.AboutActivity;
 import com.store.data.engine.app.settings.SettingsActivity;
 import com.store.data.engine.app.shutdown.Shutdown;
-import com.store.data.engine.app.editor.TextEditorActivity;
+//import com.store.data.engine.app.editor.TextEditorActivity;
 
 public class TransitActivity extends Activity
 {
@@ -66,7 +66,7 @@ public class TransitActivity extends Activity
 							finish();
 							break;
 						case "TextEditor":
-							TextEditorActivity.start(TransitActivity.this);
+							//TextEditorActivity.start(TransitActivity.this);
 							// close this activity
 							finish();
 							break;	

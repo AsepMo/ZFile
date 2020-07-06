@@ -4,7 +4,6 @@ import android.util.Log;
 
 public class AliveCheckThread extends Thread
 {
-
 	private final static String TAG = AliveCheckThread.class.getSimpleName();
 
 	private final Process proc;
