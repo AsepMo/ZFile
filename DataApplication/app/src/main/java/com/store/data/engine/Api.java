@@ -1,14 +1,18 @@
 package com.store.data.engine;
 
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v4.text.TextUtilsCompat;
-import com.store.data.engine.animation.PopupHelper;
+
+import android.Manifest;
 import android.app.Activity;
 import android.app.UiModeManager;
 import android.graphics.Color;
 import android.content.Intent;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.content.res.Configuration;
 import android.os.Build;
@@ -26,6 +30,7 @@ import java.util.Date;
 
 import com.store.data.R;
 import com.store.data.DataActivity;
+import com.store.data.engine.animation.PopupHelper;
 import com.store.data.engine.app.about.AboutFragment;
 import com.store.data.engine.app.settings.SettingsActivity;
 import com.store.data.engine.app.shutdown.Shutdown;
@@ -33,6 +38,8 @@ import com.store.data.engine.app.shutdown.Reboot;
 import com.store.data.engine.app.debug.DevTool;
 import com.store.data.engine.app.debug.DebugFunction;
 import com.store.data.engine.app.debug.DevToolFragment;
+import com.store.data.engine.app.debug.ExecScript;
+import com.store.data.engine.app.debug.LogFragment;
 
 
 public class Api
@@ -216,7 +223,21 @@ public class Api
 	{
 
 		final DevTool.Builder builder = new DevTool.Builder(c);
-		builder.addFunction(new DebugFunction("Power") {
+		builder.addFunction(new DebugFunction("Busybox") {
+				@Override
+				public String call() throws Exception
+				{
+					new android.os.Handler().postDelayed(new Runnable(){
+							@Override
+							public void run()
+							{
+								setBusybox(c);
+							}
+						}, 2500);
+					return "This Busybox Install, Remove, And Run Script";
+				}
+			})
+			.addFunction(new DebugFunction("Power") {
 				@Override
 				public String call() throws Exception
 				{
@@ -225,26 +246,76 @@ public class Api
 				}
 			})
 			.addFunction(new DebugFunction.Clear("Clear"))
-			.addFunction(new DebugFunction("Settings") {
+			/*.addFunction(new DebugFunction("Settings") {
+			 @Override
+			 public String call() throws Exception
+			 {
+			 SharedPreferences.Editor editor = c.getSharedPreferences(PREFS_FILE_NAME, Context.MODE_PRIVATE).edit();
+			 editor.putString("UpdatedAt", new Date(System.currentTimeMillis()).toString());
+			 editor.putBoolean("Reboot", true);
+			 editor.putString("Ringtons", "Deep.ogg");
+			 editor.putString("Theme", "Dark Theme");
+			 editor.apply();
+			 return "Preferences file has been created.";
+			 }
+			 }).addFunction(new DebugFunction.DumpSharedPreferences("Shared prefs", PREFS_FILE_NAME));*/
+			.addFunction(new DebugFunction("Settings"){
 				@Override
 				public String call() throws Exception
 				{
-					SharedPreferences.Editor editor = c.getSharedPreferences(PREFS_FILE_NAME, Context.MODE_PRIVATE).edit();
-					editor.putString("UpdatedAt", new Date(System.currentTimeMillis()).toString());
-					editor.putBoolean("Reboot", true);
-					editor.putString("Ringtons", "Deep.ogg");
-					editor.putString("Theme", "Dark Theme");
-					editor.apply();
-					return "Preferences file has been created.";
+					new android.os.Handler().postDelayed(new Runnable(){
+							@Override
+							public void run()
+							{
+								SettingsActivity.start(c);
+							}
+						}, 2500);
+					return "Please wait..";
 				}
-			}).addFunction(new DebugFunction.DumpSharedPreferences("Shared prefs", PREFS_FILE_NAME));
-
+			});
 		builder.setTextSize(12)
 			.displayAt(50, 200)
 			.setTheme(DevToolFragment.DevToolTheme.DARK)
 			.build();
     }
 
+	
+	public static void setBusybox(final Activity c)
+	{
+
+		final DevTool.Builder builder = new DevTool.Builder(c);
+		builder.addFunction(new DebugFunction("Install") {
+				@Override
+				public String call() throws Exception
+				{
+					installBtnOnClick(c);
+					EngineActivity mEngine = (EngineActivity)c;
+					mEngine.showFragment(new LogFragment());
+					return "Please wait..";
+				}
+			});
+		builder.addFunction(new DebugFunction("Remove") {
+				@Override
+				public String call() throws Exception
+				{
+					removeBtnOnClick(c);
+					return "Please wait..";
+				}
+			});
+		builder.addFunction(new DebugFunction("Run Script") {
+				@Override
+				public String call() throws Exception
+				{
+
+					return "Please wait..";
+				}
+			});
+		builder.setTextSize(12)
+			.displayAt(50, 200)
+			.setTheme(DevToolFragment.DevToolTheme.DARK)
+			.build();
+    }
+	
 	public static void setPowerManager(final Activity c)
 	{
 
@@ -257,7 +328,7 @@ public class Api
 					return "Power Off";
 				}
 			})
-		.addFunction(new DebugFunction("Reboot") {
+			.addFunction(new DebugFunction("Reboot") {
 				@Override
 				public String call() throws Exception
 				{
@@ -290,7 +361,7 @@ public class Api
 				@Override
 				public String call() throws Exception
 				{
-					
+
 					return "Restart Android";
 				}
 			});
@@ -311,7 +382,51 @@ public class Api
             }
         };
     }
+	
+	public static void installBtnOnClick(final Activity c) {
+        new AlertDialog.Builder(c)
+			.setTitle(R.string.title_confirm_install_dialog)
+			.setMessage(R.string.message_confirm_install_dialog)
+			.setIcon(android.R.drawable.ic_dialog_alert)
+			.setCancelable(false)
+			.setPositiveButton(android.R.string.yes,
+			new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int id) {
+					new ExecScript(c, "install").start();
+				}
+			})
+			.setNegativeButton(android.R.string.no,
+			new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int id) {
+					dialog.cancel();
+				}
+			}).show();
+    }
 
+    public static void removeBtnOnClick(final Activity c) {
+        new AlertDialog.Builder(c)
+			.setTitle(R.string.title_confirm_remove_dialog)
+			.setMessage(R.string.message_confirm_remove_dialog)
+			.setIcon(android.R.drawable.ic_dialog_alert)
+			.setCancelable(false)
+			.setPositiveButton(android.R.string.yes,
+			new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int id) {
+					new ExecScript(c, "remove").start();
+				}
+			})
+			.setNegativeButton(android.R.string.no,
+			new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int id) {
+					dialog.cancel();
+				}
+			}).show();
+    }
+	
 	public static void showPopup(Context c, View view)
 	{
 		PopupWindow showPopup = PopupHelper.newBasicPopupWindow(c);

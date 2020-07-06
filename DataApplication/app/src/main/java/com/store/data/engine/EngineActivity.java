@@ -68,6 +68,7 @@ public class EngineActivity extends ActionBarActivity implements DrawerAdapter.O
 		Intent mApplication = new Intent(c, EngineActivity.class);
 		c.startActivity(mApplication);
 	}
+	
     private static final int POS_DASHBOARD = 0;
     private static final int POS_ACCOUNT = 1;
     private static final int POS_MESSAGES = 2;
@@ -268,7 +269,6 @@ public class EngineActivity extends ActionBarActivity implements DrawerAdapter.O
 			//final View menuItemView = findViewById(R.id.action_menu);
 			//showPopup(menuItemView);
 			//Reboot.start(EngineActivity.this);
-			Api.setDebugging(EngineActivity.this);
 			return true;
 		}
 		else

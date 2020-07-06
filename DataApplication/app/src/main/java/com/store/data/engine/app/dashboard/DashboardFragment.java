@@ -2,21 +2,23 @@ package com.store.data.engine.app.dashboard;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatDelegate;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Gravity;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Calendar;
 
 import com.store.data.R;
 import com.store.data.engine.app.about.Element;
 import com.store.data.engine.app.about.AboutPage;
-import android.view.Gravity;
-import android.content.res.Configuration;
-import android.support.v7.app.AppCompatDelegate;
-import java.util.Calendar;
-import android.widget.LinearLayout;
+import android.graphics.Color;
 
 public class DashboardFragment extends Fragment 
 {
@@ -38,28 +40,76 @@ public class DashboardFragment extends Fragment
 		// TODO: Implement this method
 		super.onViewCreated(view, savedInstanceState);
 		simulateDayNight(0);
-        Element adsElement = new Element();
-        adsElement.setTitle("Advertise with us");
-
-        View aboutPage = new AboutPage(getActivity())
+        Element adsElementFolder = new Element();
+		final String folders = "Folder";
+        adsElementFolder.setTitle(folders);
+		adsElementFolder.setIconDrawable(R.drawable.ic_folder);
+		//adsElementFolder.setIconTint(Color.TRANSPARENT);
+		//adsElementFolder.setIconNightTint(Color.TRANSPARENT);
+		adsElementFolder.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v)
+				{
+					Toast.makeText(getActivity(), folders, Toast.LENGTH_SHORT).show();
+				}
+			});
+		Element adsElementFTP = new Element();
+		final String ftp = "FTP";
+        adsElementFTP.setTitle(ftp);
+		adsElementFTP.setIconDrawable(R.drawable.ic_home_server);
+		//adsElementFTP.setIconTint(android.R.color.transparent);
+		//adsElementFTP.setIconNightTint(android.R.color.transparent);
+		adsElementFTP.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v)
+				{
+					Toast.makeText(getActivity(), ftp, Toast.LENGTH_SHORT).show();
+				}
+			});
+		
+		Element adsElementWebClient = new Element();
+		final String webClient = "Web Client";
+        adsElementWebClient.setTitle(webClient);
+		adsElementWebClient.setIconDrawable(R.drawable.ic_web_client);
+		//adsElementWebClient.setIconTint(android.R.color.transparent);
+		//adsElementWebClient.setIconNightTint(android.R.color.transparent);
+		adsElementWebClient.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v)
+				{
+					Toast.makeText(getActivity(), webClient, Toast.LENGTH_SHORT).show();
+				}
+			});	
+		
+		Element adsElementWebServer = new Element();
+		final String webServer = "Web Server";
+        adsElementWebServer.setTitle(webServer);
+		adsElementWebServer.setIconDrawable(R.drawable.ic_web_server);
+		//adsElementWebServer.setIconTint(android.R.color.transparent);
+		//adsElementWebServer.setIconNightTint(android.R.color.transparent);
+		adsElementWebServer.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v)
+				{
+					Toast.makeText(getActivity(), webServer, Toast.LENGTH_SHORT).show();
+				}
+			});		
+			
+        View dashboardPage = new DashboardPage(getActivity())
 			.isRTL(false)
 			.setImage(R.drawable.dummy_image)
-			.addItem(new Element().setTitle("Version 1.0"))
-			.addItem(adsElement)
-			.addGroup("Connect with us")
-			.addEmail("asepmo.story@gmail.com")
-			.addWebsite("http://cbox-dev.github.io/CBox-Dev")
-			.addFacebook("ZFile")
-			.addTwitter("ZFile")
-			.addYoutube("UC2H7DyQrnr2RA4RSMF0B4ZA")
-			.addPlayStore("com.store.data.pro")
-			.addInstagram("AsepMo")
-			.addGitHub("AsepMo")
+			.addItem(new Element().setTitle("Dashboard :"))
+			.addItem(adsElementFolder)
+			.addItem(adsElementFTP)
+			.addItem(adsElementWebClient)
+			.addItem(adsElementWebServer)
+			.addGroup("Next Menu :")
+			.addDebug(getActivity(), "Debug")
 			.addItem(getCopyRightsElement())
 			.create();
 			
 			LinearLayout mLayout = (LinearLayout)view.findViewById(R.id.gridMenu);
-			mLayout.addView(aboutPage);
+			mLayout.addView(dashboardPage);
 		
 	}
 
