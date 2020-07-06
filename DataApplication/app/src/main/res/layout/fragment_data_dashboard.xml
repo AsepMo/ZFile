@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:orientation="vertical"
-	android:background="#1EE314">
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:padding="10dp">
 
-</LinearLayout>
+	<LinearLayout
+		android:id="@+id/gridMenu"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="#FFF5F5F5"/>
+		
+</RelativeLayout>
 

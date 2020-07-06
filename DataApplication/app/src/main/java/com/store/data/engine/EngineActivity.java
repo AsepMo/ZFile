@@ -58,6 +58,11 @@ import com.store.data.engine.view.menu.SpaceItem;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 import com.ls.directoryselector.DirectoryDialog;
+import com.store.data.engine.app.dashboard.DashboardFragment;
+import android.widget.PopupWindow;
+import android.view.LayoutInflater;
+import android.widget.LinearLayout.LayoutParams;
+import com.store.data.engine.animation.PopupHelper;
 
 public class EngineActivity extends ActionBarActivity implements DrawerAdapter.OnItemSelectedListener, DirectoryDialog.Listener
 {
@@ -135,21 +140,20 @@ public class EngineActivity extends ActionBarActivity implements DrawerAdapter.O
 		// TODO: Implement this method
 		if (position == POS_DASHBOARD)
 		{
-
+			showFragment(new DashboardFragment());
 		}
 		if (position == POS_ACCOUNT)
 		{
-
-
+			TransitActivity.start(EngineActivity.this, TransitActivity.TEXT_EDITOR);
 		}
 		if (position == POS_LOGOUT)
 		{
-			TransitActivity.start(EngineActivity.this, TransitActivity.SHUTDOWN);
+			TransitActivity.start(EngineActivity.this, TransitActivity.EXIT);
             finish();
         }
         slidingRootNav.closeMenu();
-        Fragment selectedScreen = EngineFragment.createFor(screenTitles[position]);
-        showFragment(selectedScreen);
+        //Fragment selectedScreen = EngineFragment.createFor(screenTitles[position]);
+        //showFragment(selectedScreen);
 	}
 
 	@Override
@@ -235,7 +239,7 @@ public class EngineActivity extends ActionBarActivity implements DrawerAdapter.O
     public boolean onCreateOptionsMenu(Menu menu)
 	{
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_data_dashboard, menu);
         return true;
     }
 
@@ -261,13 +265,29 @@ public class EngineActivity extends ActionBarActivity implements DrawerAdapter.O
 			AnalyticsManager.logEvent("About");
 			TransitActivity.start(EngineActivity.this, TransitActivity.ABOUT);
             return true;
-        }
-		else
+        }else if (id == R.id.action_menu) {
+			final View menuItemView = findViewById(R.id.action_menu);
+			showPopup(menuItemView);
+			return true;
+		}else
 		{
 			return super.onOptionsItemSelected(item);
 		}
-    }
+	}
+    
 
+	private void showPopup(View view)
+	{
+		PopupWindow showPopup = PopupHelper.newBasicPopupWindow(getApplicationContext());
+		LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View popupView = inflater.inflate(R.layout.custom_layout, null);
+		showPopup.setContentView(popupView);
+
+		showPopup.setWidth(LayoutParams.WRAP_CONTENT);
+		showPopup.setHeight(LayoutParams.WRAP_CONTENT);
+		showPopup.setAnimationStyle(R.style.Animations_GrowFromTop);
+		showPopup.showAsDropDown(view);
+	}
 	private final SharedPreferences.OnSharedPreferenceChangeListener sharedPrefsChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
 		@Override
 		public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)

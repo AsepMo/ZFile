@@ -18,5 +18,18 @@
         <item>0</item>
         <item>@drawable/ic_logout_grey600_24dp</item>
     </array>
-
+	
+	<string-array name="menu_dashboard_title">
+        <item>Folder</item>
+        <item>FTP</item>
+        <item>Web Client</item>
+        <item>Web Server</item>
+	</string-array>
+	
+	<array name="menu_dashboard_icon">
+        <item>@drawable/ic_folder</item>
+        <item>@drawable/ic_home_server</item>
+        <item>@drawable/ic_web_client</item>
+        <item>@drawable/ic_web_server</item>
+    </array>
 </resources>

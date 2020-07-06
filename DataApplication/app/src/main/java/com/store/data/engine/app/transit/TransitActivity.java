@@ -12,12 +12,14 @@ import com.store.data.R;
 import com.store.data.engine.app.about.AboutActivity;
 import com.store.data.engine.app.settings.SettingsActivity;
 import com.store.data.engine.app.shutdown.Shutdown;
+import com.store.data.engine.app.editor.TextEditorActivity;
 
 public class TransitActivity extends Activity
 {
 
 	public static String TRANSIT = "transit";
 	public static String ABOUT = "About";
+	public static String TEXT_EDITOR = "TextEditor";
 	public static String SETTINGS = "Settings";
 	public static String SHUTDOWN = "Shutdown";
 	
@@ -63,10 +65,15 @@ public class TransitActivity extends Activity
 							// close this activity
 							finish();
 							break;
+						case "TextEditor":
+							TextEditorActivity.start(TransitActivity.this);
+							// close this activity
+							finish();
+							break;	
 						case "Shutdown":
 							Shutdown.start(TransitActivity.this);
 							// close this activity
-							//finish();
+							finish();
 							break;
 						case "Exit":
 							finish();

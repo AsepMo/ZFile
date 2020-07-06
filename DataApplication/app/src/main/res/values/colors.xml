@@ -19,7 +19,8 @@
 	<color name="text">#FFFFFF</color>
 	<color name="icons">#FFFFFF</color>
 	<color name="divider">#B6B6B6</color>
-
+	<color name="lightgray">#aa888888</color>
+	
 	<color name="colorControlNormal">@color/textColorSecondary</color>
 	<color name="colorControlActivated">@color/colorAccent</color>
 	<color name="colorControlHighlight">@color/divider</color>
