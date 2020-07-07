@@ -28,7 +28,12 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
+    <uses-feature android:name="android.hardware.location.gps" />
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
     <uses-feature android:name="android.hardware.location.gps" />
     <uses-feature
         android:name="android.hardware.touchscreen"
@@ -156,7 +161,64 @@
             android:name="com.store.data.engine.app.settings.SettingsActivity"
             android:exported="false"
             android:label="@string/action_settings"
-            android:theme="@style/ZTheme" />
+            android:theme="@style/SplashTheme" />
+        <activity
+            android:name="com.store.data.engine.app.asepmo.AsepMoActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.store.data.engine.app.webclient.WebClientActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme" >
+            <intent-filter android:label="@string/app_client" >
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="github.com"
+                    android:pathPrefix="/AsepMo"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.store.data.engine.app.webserver.WebServerActivity"
+            android:clearTaskOnLaunch="true"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_server"
+            android:theme="@style/ZTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <service android:name="com.store.data.engine.app.webserver.HttpService" >
+        </service>
+
+        <activity
+            android:name="com.store.data.engine.app.webserver.SettingsActivity"
+            android:theme="@style/AppThemeSetting" />
+        <activity
+            android:name="com.store.data.engine.app.webclient.WebviewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme" >
+        </activity>
+        <activity
+            android:name="com.store.data.engine.app.ftp.FTPActivity"
+            android:label="FTP"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme" >
+        </activity>
     </application>
 
 </manifest>

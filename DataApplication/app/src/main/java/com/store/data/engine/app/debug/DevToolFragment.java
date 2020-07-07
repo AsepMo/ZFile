@@ -170,6 +170,7 @@ public class DevToolFragment extends Fragment {
         softLog("ready.");
     }
 
+	
     /**
      * Switch the tool to minify mode.
      */

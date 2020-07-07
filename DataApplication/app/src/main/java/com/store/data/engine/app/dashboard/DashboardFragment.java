@@ -103,8 +103,9 @@ public class DashboardFragment extends Fragment
 			.addItem(adsElementFTP)
 			.addItem(adsElementWebClient)
 			.addItem(adsElementWebServer)
-			.addGroup("Next Menu :")
-			.addDebug(getActivity(), "Debug")
+			.addGroup("Tools :")
+			.addDebug(getActivity(), "Root Tools")
+			.addEditor(getActivity(), "Editor")
 			.addItem(getCopyRightsElement())
 			.create();
 			

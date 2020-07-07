@@ -11,6 +11,14 @@
 	<color name="colorPrimaryPicker">#F44336</color>
     <color name="colorPrimaryPickerDark">#D32F2F</color>
     <color name="colorAccentPicker">#FFAB00</color>
+	<color name="colorPrimaryClient">#1abc9c</color>
+    <color name="colorPrimaryClientDark">#148f77</color>
+    <color name="colorAccentClient">#f56fac60</color>
+
+	<color name="colorProgress">#806BF1</color>
+	<color name="colorProgressDark">#2600FA</color>
+
+    <color name="white">#FFFFFF</color>
 	
 	<!-- Color For TextColor -->
 	<color name="textColorPrimary">#212121</color>

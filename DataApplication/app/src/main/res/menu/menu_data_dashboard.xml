@@ -5,7 +5,7 @@
 
 	<item android:id="@+id/action_menu" 
 		android:title="@string/action_menu"
-		android:icon="@drawable/icon_debugging"
+		android:icon="@drawable/avataaars"
         android:orderInCategory="100" 
 		app:showAsAction="always" />
 

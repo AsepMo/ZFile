@@ -268,7 +268,8 @@ public class EngineActivity extends ActionBarActivity implements DrawerAdapter.O
 		{
 			//final View menuItemView = findViewById(R.id.action_menu);
 			//showPopup(menuItemView);
-			//Reboot.start(EngineActivity.this);
+			AnalyticsManager.logEvent("AsepMo");
+			TransitActivity.start(EngineActivity.this, TransitActivity.ASEPMO);
 			return true;
 		}
 		else

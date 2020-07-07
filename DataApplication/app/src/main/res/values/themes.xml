@@ -46,7 +46,7 @@
     <style name="ZTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="ZTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-	
+		
 	<style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
 		<item name="spinBars">true</item>
 		<item name="color">@color/icons</item>
@@ -73,5 +73,29 @@
     <style name="PickerToolbarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:textColorPrimary">@android:color/white</item>
     </style>
+	
+	<style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryClient</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryClientDark</item>
+        <item name="colorAccent">@color/colorAccentClient</item>
+        <item name="android:windowBackground">@drawable/background_splash</item>
+        <item name="android:windowActionBar">false</item>
+    </style>
+    <style name="ProDialogue" parent="@android:style/Theme.Dialog">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="TransparentToolbar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+	<style name="LoginFormContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">16dp</item>
+    </style>
+	<style name="AppThemeSetting" parent="android:Theme.Holo.Light">
 
+	</style>
 </resources>

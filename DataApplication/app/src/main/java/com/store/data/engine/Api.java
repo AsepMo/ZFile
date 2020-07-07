@@ -302,14 +302,13 @@ public class Api
 					return "Please wait..";
 				}
 			});
-		builder.addFunction(new DebugFunction("Run Script") {
+		/*builder.addFunction(new DebugFunction("Checker") {
 				@Override
 				public String call() throws Exception
 				{
-
 					return "Please wait..";
 				}
-			});
+			});*/
 		builder.setTextSize(12)
 			.displayAt(50, 200)
 			.setTheme(DevToolFragment.DevToolTheme.DARK)

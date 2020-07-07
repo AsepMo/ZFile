@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.store.data" >
+    xmlns:tools="http://schemas.android.com/tools"  
+	package="com.store.data" >
 
     <application
 		android:name="com.store.data.DataApplication"
@@ -8,8 +9,9 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
 		android:theme="@style/ZTheme"
-        android:resizeableActivity="true">
-		
+        android:resizeableActivity="true"
+		tools:ignore="AllowBackup">
+
         <activity
             android:name="com.store.data.DataActivity"
             android:label="@string/app_name">
@@ -120,7 +122,59 @@
             android:name="com.store.data.engine.app.settings.SettingsActivity"
             android:exported="false"
             android:label="@string/action_settings"
-            android:theme="@style/ZTheme" />
+            android:theme="@style/SplashTheme" />
+		<activity
+            android:name="com.store.data.engine.app.asepmo.AsepMoActivity"
+            android:label="@string/app_name"
+			android:theme="@style/SplashTheme"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.store.data.engine.app.webclient.WebClientActivity"
+			android:theme="@style/SplashTheme"
+            android:screenOrientation="portrait" > <!-- remove or alter as your apps requirement -->
+            <intent-filter android:label="@string/app_client">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https"
+                    android:host="github.com"
+                    android:pathPrefix="/AsepMo" /> <!-- if you want only a specific directory from your website to be opened in the app through external links -->
+            </intent-filter>
+        </activity>
+		<activity
+            android:name="com.store.data.engine.app.webserver.WebServerActivity"
+            android:clearTaskOnLaunch="true"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_server"
+			android:theme="@style/ZTheme">
+            <!--android:launchMode="singleTask" >-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <service android:name="com.store.data.engine.app.webserver.HttpService" >
+        </service>
+        <activity 
+			android:name="com.store.data.engine.app.webserver.SettingsActivity"
+			android:theme="@style/AppThemeSetting"></activity>
+		<activity
+			android:name="com.store.data.engine.app.webclient.WebviewActivity"
+            android:screenOrientation="portrait"
+			android:theme="@style/SplashTheme">
+		</activity>
+		<activity
+			android:name="com.store.data.engine.app.ftp.FTPActivity"
+            android:screenOrientation="portrait"
+			android:label="FTP"
+			android:theme="@style/SplashTheme">
+		</activity>
     </application>
 	<supports-screens
         android:anyDensity="true"
@@ -144,10 +198,15 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <!-- remove location.gps feature if not using permission ACCESS_FINE_LOCATION -->
     <uses-feature android:name="android.hardware.location.gps" />
     <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
-
 	
+    <!-- remove location.gps feature if not using permission ACCESS_FINE_LOCATION -->
+    <uses-feature android:name="android.hardware.location.gps" />
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+
+
 </manifest>

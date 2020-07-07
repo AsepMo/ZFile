@@ -74,6 +74,21 @@ public class DashboardPage
         return this;
     }
 	
+	public DashboardPage addEditor(final Activity c, String title) {
+        Element editorElement = new Element();
+        editorElement.setTitle(title);
+        editorElement.setIconDrawable(R.drawable.ic_create_script);
+        editorElement.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v)
+				{
+					
+				}
+			});
+        addItem(editorElement);
+        return this;
+    }
+	
     public DashboardPage addItem(Element element) {
         LinearLayout wrapper = (LinearLayout) mView.findViewById(R.id.about_providers);
         wrapper.addView(createItem(element));
