@@ -194,6 +194,9 @@
 			android:label="@string/action_about"
 			android:theme="@style/ZTheme"/>
 
+		<service
+			android:name="com.store.data.engine.app.updater.UpdaterService"/>
+
 		<activity
 			android:name="com.store.data.engine.app.settings.SettingsActivity"
 			android:exported="false"
@@ -280,12 +283,31 @@
 		</activity>
 
 		<activity
-			android:name="com.store.data.engine.app.ftp.FTPActivity"
+			android:name="com.store.data.engine.app.ftp.FTPListActivity"
 			android:screenOrientation="portrait"
-			android:label="FTP"
-			android:theme="@style/SplashTheme">
+			android:label="@string/app_ftp">
 
 		</activity>
+
+		<activity
+			android:name="com.store.data.engine.app.ftp.FTPViewActivity"
+			android:screenOrientation="portrait"
+			android:label="@string/app_ftp"
+			android:parentActivityName="com.store.data.engine.app.ftp.FTPListActivity">
+
+		</activity>
+
+		<activity
+			android:name="com.store.data.engine.app.ftp.FTPEditActivity"
+			android:screenOrientation="portrait"
+			android:label="@string/app_ftp"
+			android:parentActivityName="com.store.data.engine.app.ftp.FTPListActivity">
+
+		</activity>
+
+		<service
+			android:name="com.store.data.engine.app.ftp.FTPService"
+			android:exported="false"/>
 
 	</application>
 

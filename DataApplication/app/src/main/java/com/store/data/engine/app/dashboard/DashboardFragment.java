@@ -18,7 +18,7 @@ import java.util.Calendar;
 import com.store.data.R;
 import com.store.data.engine.app.about.Element;
 import com.store.data.engine.app.about.AboutPage;
-import android.graphics.Color;
+import com.store.data.engine.app.transit.TransitActivity;
 
 public class DashboardFragment extends Fragment 
 {
@@ -63,6 +63,7 @@ public class DashboardFragment extends Fragment
 				@Override
 				public void onClick(View v)
 				{
+					TransitActivity.start(getActivity(), TransitActivity.FTP);
 					Toast.makeText(getActivity(), ftp, Toast.LENGTH_SHORT).show();
 				}
 			});
@@ -77,6 +78,7 @@ public class DashboardFragment extends Fragment
 				@Override
 				public void onClick(View v)
 				{
+					TransitActivity.start(getActivity(), TransitActivity.WEB_CLIENT);
 					Toast.makeText(getActivity(), webClient, Toast.LENGTH_SHORT).show();
 				}
 			});	
@@ -91,6 +93,7 @@ public class DashboardFragment extends Fragment
 				@Override
 				public void onClick(View v)
 				{
+					TransitActivity.start(getActivity(), TransitActivity.WEB_SERVER);
 					Toast.makeText(getActivity(), webServer, Toast.LENGTH_SHORT).show();
 				}
 			});		

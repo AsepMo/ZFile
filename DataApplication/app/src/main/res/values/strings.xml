@@ -1,6 +1,7 @@
 <resources>
 	<!-- String For Application -->
     <string name="app_name">ZFile</string>
+	<string name="app_ftp">FTP</string>
 	<string name="app_client">Web Client</string>
 	<string name="app_server">Web Server</string>
     
@@ -173,9 +174,48 @@
 	<string name="server_port_dialog_title">Input the server port</string>
 	<string name="server_port_invalid">Port number must be between 1024 and 65535</string>
 	<string name="server_port_occupied">Port %d is occupied by others, please set new port in settings menu.</string>
-	<string name="about">About</string>
-	<string name="version">Version</string>
+	<string name="about_web_server">About WebServer</string>
+	<string name="version_web_server">Version</string>
 	
+	<!-- Download upgrade notification -->
+	<string name="actions_update">Update Available</string>
+	<string name="btn_update">Update</string>
+    <string name="upgrade_is_loading">Now is Download..</string>
+    <string name="has_downed">has Downloaded</string>
+    <string name="downed_complete">has Downloaded Successfully</string>
+    <string name="download_fail">Downloaded fail</string>
+    <string name="please_try_later">Please Try Again!</string>
+    <string name="start_download">Start Download</string>
+    <string name="stop_download">Stop Download</string>
+    <string name="delete_apk_file">Delete Apk file</string>
+	<!-- String For FTP -->
+	<string name="ftp_connection_name_hint">Connection Name</string>
+    <string name="connection_name_label">Connection Name</string>
+    <string name="ftp_server_ip_hint">IP</string>
+    <string name="ftp_server_port_hint">Port</string>
+    <string name="ftp_server_username_hint">Username</string>
+    <string name="ftp_server_password_hint">Password</string>
+    <string name="ftp_server_destination_hint">Destination folder path</string>
+    <string name="server_info">Server Info</string>
+    <string name="source_list">Source Files and Directories</string>
+    <string name="ftp_edit_done">Done</string>
+    <string name="ftp_edit_cancel">Cancel</string>
+    <string name="new_ftp">New FTP</string>
+    <string name="delete_ftp">Delete FTP</string>
+    <string name="plus">+</string>
+    <string name="save">Save</string>
+    <string name="run">Run</string>
+    <string name="cancel">Cancel</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="search">Search</string>
+    <string name="clear_search">Clear Search</string>
+    <string name="no_ftp">There are no FTP connectionss</string>
+    <string name="call_text">Call</string>
+    <plurals name="subtitle_plural">
+        <item quantity="one">%1$s FTP</item>
+        <item quantity="other">%1$s FTPs</item>
+    </plurals>
     <string-array name="language_entries" translatable="false">
         <item>Беларускі</item>
         <item>Deutsch</item>

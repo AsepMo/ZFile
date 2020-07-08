@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.store.data.R;
 import com.store.data.engine.app.asepmo.AsepMoActivity;
 import com.store.data.engine.app.webserver.WebServerActivity;
-import com.store.data.engine.app.ftp.FTPActivity;
+import com.store.data.engine.app.ftp.FTPListActivity;
 
 public class JavaScriptInterface
 {
@@ -91,7 +91,7 @@ public class JavaScriptInterface
 	@JavascriptInterface
 	public void FTP()
 	{
-		FTPActivity.start(activity);
+		FTPListActivity.start(activity);
 		Toast.makeText(activity, "FTP", Toast.LENGTH_SHORT).show();
 	}
 

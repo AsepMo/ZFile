@@ -9,10 +9,10 @@
             android:summary="@string/server_port_summary"
             android:title="@string/server_port" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/about" >
+    <PreferenceCategory android:title="@string/about_web_server" >
         <Preference
             android:key="prdference_version"
-            android:title="@string/version" />
+            android:title="@string/version_web_server" />
     </PreferenceCategory>
 
 </PreferenceScreen>

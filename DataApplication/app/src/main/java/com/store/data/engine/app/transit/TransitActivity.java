@@ -5,13 +5,23 @@ import android.app.PendingIntent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Build;
+import android.os.Environment;
+import android.os.Vibrator;
+import android.os.IBinder;
+import android.util.Log;
 import android.net.Uri;
 import android.view.WindowManager;
+
+import org.json.JSONObject;
+import java.io.File;
 
 import com.store.data.R;
 import com.store.data.engine.app.about.AboutActivity;
@@ -23,16 +33,21 @@ import com.store.data.engine.app.webserver.WebServerActivity;
 import com.store.data.engine.app.webclient.CustomTabActivityHelper;
 import com.store.data.engine.app.webclient.WebviewFallback;
 import com.store.data.engine.app.webclient.SmartWebView;
+import com.store.data.engine.app.ftp.FTPListActivity;
+import com.store.data.engine.app.updater.UpdaterService;
+import com.store.data.engine.EngineActivity;
 
 public class TransitActivity extends Activity
 {
-
+	public static final String TAG = TransitActivity.class.getSimpleName();
+	
 	public static String TRANSIT = "transit";
 	public static String ABOUT = "About";
 	public static String TEXT_EDITOR = "TextEditor";
 	public static String SETTINGS = "Settings";
 	public static String SHUTDOWN = "Shutdown";
 	public static String ASEPMO = "AsepMo";
+	public static String FTP = "ftp";
 	public static String WEB_CLIENT = "WebClient";
 	public static String WEB_SERVER = "WebServer";
 	
@@ -89,6 +104,11 @@ public class TransitActivity extends Activity
 							// close this activity
 							finish();
 							break;	
+						case "ftp":
+							FTPListActivity.start(TransitActivity.this);
+							// close this activity
+							finish();
+							break;	
 						case "WebClient":
 							String url = "https://www.google.com";
 							CustomTabsIntent.Builder intentBuilder = new CustomTabsIntent.Builder();
@@ -114,13 +134,17 @@ public class TransitActivity extends Activity
 							// close this activity
 							finish();
 							break;
-						case "Exit":
-							finish();
+						case "Exit":	
+							Intent intent = new Intent(Intent.ACTION_MAIN);
+							intent.addCategory(Intent.CATEGORY_HOME);
+							intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+							startActivity(intent);
+							EngineActivity engine = (EngineActivity)getApplicationContext();
+							engine.setDeleteFile();
 							break;
 					}
 				}
 			}, SPLASH_TIME_OUT);
     }
-
 }
 

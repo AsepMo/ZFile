@@ -99,8 +99,8 @@ android.content.DialogInterface.OnClickListener, OnCancelListener
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
-		menu.add("Web Server")
-			.setIcon(R.mipmap.ic_launcher)
+		menu.add("Chrome")
+			.setIcon(R.drawable.app_icon_chrome)
 			.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener(){
 				@Override
 				public boolean onMenuItemClick(MenuItem item)
