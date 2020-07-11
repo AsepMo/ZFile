@@ -24,6 +24,7 @@ import org.json.JSONObject;
 import java.io.File;
 
 import com.store.data.R;
+import com.store.data.engine.EngineActivity;
 import com.store.data.engine.app.about.AboutActivity;
 import com.store.data.engine.app.settings.SettingsActivity;
 import com.store.data.engine.app.shutdown.Shutdown;
@@ -35,7 +36,7 @@ import com.store.data.engine.app.webclient.WebviewFallback;
 import com.store.data.engine.app.webclient.SmartWebView;
 import com.store.data.engine.app.ftp.FTPListActivity;
 import com.store.data.engine.app.updater.UpdaterService;
-import com.store.data.engine.EngineActivity;
+import com.store.data.engine.app.editor.EditorActivity;
 
 public class TransitActivity extends Activity
 {
@@ -50,6 +51,7 @@ public class TransitActivity extends Activity
 	public static String FTP = "ftp";
 	public static String WEB_CLIENT = "WebClient";
 	public static String WEB_SERVER = "WebServer";
+	public static String EDITOR = "Editor";
 	
 	public static String EXIT = "Exit";
 	private PendingIntent createPendingIntent(Activity c)
@@ -134,6 +136,11 @@ public class TransitActivity extends Activity
 							// close this activity
 							finish();
 							break;
+                        case "Editor":
+                            EditorActivity.start(TransitActivity.this);
+                            // close this activity
+                            finish();
+							break;    
 						case "Exit":	
 							Intent intent = new Intent(Intent.ACTION_MAIN);
 							intent.addCategory(Intent.CATEGORY_HOME);

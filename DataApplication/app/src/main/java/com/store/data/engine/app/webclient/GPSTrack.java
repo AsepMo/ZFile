@@ -200,14 +200,6 @@ public class GPSTrack extends Service implements LocationListener {
     }
 
     @Override
-    public void onProviderDisabled(String provider) {
-    }
-
-    @Override
-    public void onProviderEnabled(String provider) {
-    }
-
-    @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
     }
 

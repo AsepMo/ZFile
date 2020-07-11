@@ -2,6 +2,7 @@ package com.store.data.engine.app.dashboard;
 
 import com.store.data.R;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
@@ -26,10 +27,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.store.data.engine.Api;
 import com.store.data.engine.app.about.Element;
 import com.store.data.engine.app.about.AboutPageUtils;
-import com.store.data.engine.Api;
-import android.app.Activity;
+import com.store.data.engine.app.transit.TransitActivity;
 
 public class DashboardPage
 {
@@ -82,7 +84,7 @@ public class DashboardPage
 				@Override
 				public void onClick(View v)
 				{
-					
+					TransitActivity.start(mContext, TransitActivity.EDITOR);
 				}
 			});
         addItem(editorElement);

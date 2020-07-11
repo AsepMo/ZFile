@@ -309,6 +309,14 @@
 			android:name="com.store.data.engine.app.ftp.FTPService"
 			android:exported="false"/>
 
+		<activity
+			android:name="com.store.data.engine.app.editor.EditorActivity"
+			android:screenOrientation="portrait"
+			android:label="@string/app_ftp"
+			android:parentActivityName="com.store.data.engine.EngineActivity">
+
+		</activity>
+
 	</application>
 
 	<supports-screens

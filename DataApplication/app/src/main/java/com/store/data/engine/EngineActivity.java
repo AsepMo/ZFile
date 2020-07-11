@@ -51,7 +51,6 @@ import java.util.ArrayList;
 import java.io.File;
 
 import com.store.data.R;
-
 import com.store.data.engine.Api;
 import com.store.data.engine.app.AnalyticsManager;
 import com.store.data.engine.app.ActionBarActivity;

@@ -41,6 +41,8 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.6.1'
     // FTP browser sample
     compile 'commons-net:commons-net:3.3'
+    compile 'org.apache.httpcomponents:httpcore:4.4.1' 
+    compile 'org.apache.httpcomponents:httpclient:4.5'
 
     // Root example
     compile 'eu.chainfire:libsuperuser:1.0.0.+'
