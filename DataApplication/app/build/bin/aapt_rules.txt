@@ -14,6 +14,7 @@
 -keep class android.support.design.widget.CheckableImageButton { <init>(...); }
 
 # view res/layout/activity_data_editor.xml #generated:2
+# view res/layout/activity_data_editor_text.xml #generated:2
 # view res/layout/activity_data_store.xml #generated:2
 # view res/layout/activity_data_updater.xml #generated:2
 # view res/layout/activity_ftp_edit.xml #generated:2
@@ -32,6 +33,9 @@
 # view res/layout/fragment_ftp_edit.xml #generated:79
 # view res/layout/fragment_ftp_edit.xml #generated:96
 -keep class android.support.design.widget.TextInputLayout { <init>(...); }
+
+# view res/layout/content_data_editor_text.xml #generated:24
+-keep class android.support.v4.view.ViewPager { <init>(...); }
 
 # view res/layout/abc_alert_dialog_material.xml #generated:41
 -keep class android.support.v4.widget.NestedScrollView { <init>(...); }
@@ -109,6 +113,7 @@
 
 # view res/layout/abc_screen_toolbar.xml #generated:36
 # view res/layout/activity_data_editor.xml #generated:10
+# view res/layout/activity_data_editor_text.xml #generated:10
 # view res/layout/activity_data_store.xml #generated:10
 # view res/layout/activity_data_updater.xml #generated:10
 # view res/layout/activity_ftp_edit.xml #generated:10
@@ -144,6 +149,12 @@
 
 # view AndroidManifest.xml #generated:241
 -keep class com.store.data.engine.app.editor.EditorActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:263
+-keep class com.store.data.engine.app.editor.text.DocumentStorageService { <init>(...); }
+
+# view AndroidManifest.xml #generated:247
+-keep class com.store.data.engine.app.editor.text.TextEditorActivity { <init>(...); }
 
 # view res/layout/fragment_ftp_edit.xml #generated:101
 # view res/layout/fragment_ftp_edit.xml #generated:116
@@ -220,4 +231,7 @@
 # view res/xml/pref_theme.xml #generated:13
 # view res/xml/pref_theme.xml #generated:24
 -keep class com.store.data.engine.graphics.MaterialColorPreference { <init>(...); }
+
+# view res/layout/content_data_editor_text.xml #generated:17
+-keep class io.karim.MaterialTabs { <init>(...); }
 

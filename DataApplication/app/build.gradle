@@ -46,7 +46,11 @@ dependencies {
 
     // Root example
     compile 'eu.chainfire:libsuperuser:1.0.0.+'
-	
+    // editor example
+	compile 'io.karim:materialtabs:2.0.2'
+    compile 'com.android.support:support-v13:27.0.2'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.commonsware.cwac:pager:0.2.6'
 	//SlidingRootNav sample
 	compile 'com.yarolegovich:sliding-root-nav:1.1.0'
 }

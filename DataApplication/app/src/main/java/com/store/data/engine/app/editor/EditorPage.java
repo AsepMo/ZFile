@@ -30,6 +30,7 @@ import com.store.data.engine.app.about.Element;
 import com.store.data.engine.app.about.AboutPageUtils;
 import com.store.data.engine.Api;
 import android.app.Activity;
+import com.store.data.engine.app.editor.text.TextEditorActivity;
 
 public class EditorPage
 {
@@ -61,13 +62,13 @@ public class EditorPage
     public EditorPage addTextEditor(final Activity c, String title) {
         Element emailElement = new Element();
         emailElement.setTitle(title);
-        emailElement.setIconDrawable(R.drawable.icon_debugging);
+        emailElement.setIconDrawable(R.drawable.ic_create_script);
         //emailElement.setIconTint(R.color.about_item_icon_color);
         emailElement.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v)
                 {
-                    
+                   TextEditorActivity.start(mContext); 
                 }
             });
         addItem(emailElement);
