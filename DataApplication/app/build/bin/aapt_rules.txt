@@ -232,6 +232,9 @@
 # view res/xml/pref_theme.xml #generated:24
 -keep class com.store.data.engine.graphics.MaterialColorPreference { <init>(...); }
 
+# view res/layout/radial_menu_overlay.xml #generated:9
+-keep class com.store.data.engine.view.menu.SemiCircularRadialMenu { <init>(...); }
+
 # view res/layout/content_data_editor_text.xml #generated:17
 -keep class io.karim.MaterialTabs { <init>(...); }
 
